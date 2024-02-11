@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentImageIndex = 0;
 	let touchStartX = 0;
     let touchEndX = 0;
-	let swipeThreshold = 20; // Umbral de sensibilidad ajustado
+	let swipeThreshold = 1; // Umbral de sensibilidad ajustado
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
