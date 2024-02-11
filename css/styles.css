@@ -197,7 +197,52 @@ p{
 
 /* @media para hacer el texto responsivo */
 
+@media (max-height: 500px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 10%;
+		
+	}
+
+	.book-content{
+		width: 50%;
+		min-width: 600px;
+		max-width: 600px;
+		height: 500px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+}
+
+@media (max-height: 400px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 9%;
+		
+	}
+
+	.book-content{
+		width: 50%;
+		min-width: 500px;
+		max-width: 500px;
+		height: 400px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+}
+
 @media (max-height: 300px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 7%;
+		
+	}
+
 	.book-content{
 		width: 50%;
 		min-width: 400px;
@@ -208,6 +253,101 @@ p{
 		transition: 1s;
 	}
 
+}
+
+
+@media (max-height: 250px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 6%;
+		
+	}
+	.book-content{
+		width: 50%;
+		min-width: 300px;
+		max-width: 300px;
+		height: 250px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+	
+}
+
+@media (max-height: 200px) {
+
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 5%;
+		
+	}
+	.book-content{
+		width: 50%;
+		min-width: 300px;
+		max-width: 300px;
+		height: 200px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+
+}
+
+@media (max-height: 170px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 3%;
+		
+	}
+	.book-content{
+		width: 50%;
+		min-width: 240px;
+		max-width: 240px;
+		height: 170px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+	
+}
+
+@media (max-height: 150px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 2%;
+		
+	}
+	.book-content{
+		width: 50%;
+		min-width: 240px;
+		max-width: 240px;
+		height: 150px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+}
+
+@media (max-height: 100px) {
+	.container{
+		width: 100vw;
+		height: 100vh;
+		margin-left: 1%;
+		
+	}
+	.book-content{
+		width: 50%;
+		min-width: 200px;
+		max-width: 200px;
+		height: 100px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
 }
 
 @media screen and (max-width: 800px){
