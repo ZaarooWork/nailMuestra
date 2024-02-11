@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let touchEndX = 0;
     let touchStartY = 0;
     let touchEndY = 0;
-    let swipeThreshold = 30; // Ajusta según sea necesario
+    let swipeThreshold = 50; // Ajusta según sea necesario
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
