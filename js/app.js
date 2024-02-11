@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleSwipe() {
         let swipeDistanceX = touchEndX - touchStartX;
         let swipeDistanceY = touchEndY - touchStartY;
-        let verticalSwipeThreshold = 20; // Ajusta según sea necesario
+        let verticalSwipeThreshold = 50; // Ajusta según sea necesario
 
         // Verifica si el movimiento es principalmente horizontal y el movimiento vertical es insignificante
         if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY) &&
