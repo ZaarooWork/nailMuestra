@@ -47,7 +47,6 @@ for (var i = 0; i < uno.length; i++) {
 	});
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
     // Obtén las imágenes y los botones
     let images = document.querySelectorAll(".book1 img");
@@ -56,9 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Inicializa el índice de la imagen actual
     let currentImageIndex = 0;
-	let touchStartX = 0;
+    let touchStartX = 0;
     let touchEndX = 0;
-	let swipeThreshold = 1; // Umbral de sensibilidad ajustado
+    let touchStartY = 0;
+    let touchEndY = 0;
+    let swipeThreshold = 30; // Ajusta según sea necesario
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
@@ -87,28 +88,38 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.addEventListener("click", showPrevImage);
     nextButton.addEventListener("click", showNextImage);
 
-	// Event listeners para eventos táctiles
+    // Event listeners para eventos táctiles
     document.addEventListener("touchstart", function (event) {
         touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
     });
 
     document.addEventListener("touchend", function (event) {
         touchEndX = event.changedTouches[0].clientX;
+        touchEndY = event.changedTouches[0].clientY;
         handleSwipe();
     });
 
     function handleSwipe() {
-        let swipeDistance = touchEndX - touchStartX;
+        let swipeDistanceX = touchEndX - touchStartX;
+        let swipeDistanceY = touchEndY - touchStartY;
+        let verticalSwipeThreshold = 20; // Ajusta según sea necesario
 
-        if (swipeDistance > swipeThreshold) {
-            // Deslizar hacia la derecha
-            showPrevImage();
-        } else if (swipeDistance < -swipeThreshold) {
-            // Deslizar hacia la izquierda
-            showNextImage();
+        // Verifica si el movimiento es principalmente horizontal y el movimiento vertical es insignificante
+        if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY) &&
+            Math.abs(swipeDistanceY) < verticalSwipeThreshold) {
+            if (swipeDistanceX > swipeThreshold) {
+                // Deslizar hacia la derecha
+                showPrevImage();
+            } else if (swipeDistanceX < -swipeThreshold) {
+                // Deslizar hacia la izquierda
+                showNextImage();
+            }
         }
     }
 
     // Muestra la primera imagen al cargar la página
     showCurrentImage();
 });
+
+
