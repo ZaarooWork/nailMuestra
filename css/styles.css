@@ -197,6 +197,19 @@ p{
 
 /* @media para hacer el texto responsivo */
 
+@media (max-height: 300px) {
+	.book-content{
+		width: 50%;
+		min-width: 400px;
+		max-width: 400px;
+		height: 300px;
+		position: relative;
+		perspective: 1000px;
+		transition: 1s;
+	}
+
+}
+
 @media screen and (max-width: 800px){
 	p{
 		font-size: 12px;

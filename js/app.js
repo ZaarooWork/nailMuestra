@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let touchEndX = 0;
     let touchStartY = 0;
     let touchEndY = 0;
-    let swipeThreshold = 50; // Ajusta según sea necesario
+    let swipeThreshold = 30; // Ajusta según sea necesario
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleSwipe() {
         let swipeDistanceX = touchEndX - touchStartX;
         let swipeDistanceY = touchEndY - touchStartY;
-        let verticalSwipeThreshold = 50; // Ajusta según sea necesario
+        let verticalSwipeThreshold = 30; // Ajusta según sea necesario
 
         // Verifica si el movimiento es principalmente horizontal y el movimiento vertical es insignificante
         if (Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY) &&
