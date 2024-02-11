@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     prevButton.addEventListener("click", showPrevImage);
     nextButton.addEventListener("click", showNextImage);
 
-    // Event listeners para eventos táctiles
+    /* // Event listeners para eventos táctiles
     document.addEventListener("touchstart", function (event) {
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showNextImage();
             }
         }
-    }
+    } */
 
     // Muestra la primera imagen al cargar la página
     showCurrentImage();
