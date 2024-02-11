@@ -49,82 +49,6 @@ for (var i = 0; i < uno.length; i++) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    var images = document.querySelectorAll(".book1 img");
-    var prevButton = document.getElementById("prevButton");
-    var nextButton = document.getElementById("nextButton");
-
-    var currentImageIndex = 0;
-    var touchStartX = 0;
-    var touchEndX = 0;
-
-    function showCurrentImage() {
-        images.forEach(function (image) {
-            image.style.display = "none";
-        });
-
-        images[currentImageIndex].style.display = "block";
-    }
-
-    function showNextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        showCurrentImage();
-    }
-
-    function showPrevImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        showCurrentImage();
-    }
-
-    prevButton.addEventListener("click", showPrevImage);
-    nextButton.addEventListener("click", showNextImage);
-
-    // Event listeners para eventos táctiles
-    document.addEventListener("touchstart", function (event) {
-        touchStartX = event.touches[0].clientX;
-    });
-
-    document.addEventListener("touchmove", function (event) {
-        // Obtén la posición de X al mover
-        var touchMoveX = event.touches[0].clientX;
-
-        // Calcula la distancia entre touchStartX y touchMoveX
-        var swipeDistance = touchMoveX - touchStartX;
-
-        // Ajusta este umbral según tus necesidades
-        var zoomThreshold = 10;
-
-        // Si la distancia es mayor al umbral, considera que es un zoom
-        if (Math.abs(swipeDistance) > zoomThreshold) {
-            // No hagas nada si es un gesto de zoom
-            return;
-        }
-
-        // Evita el comportamiento predeterminado del gesto de cambio de imagen
-        event.preventDefault();
-    });
-
-    document.addEventListener("touchend", function (event) {
-        touchEndX = event.changedTouches[0].clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        var swipeDistance = touchEndX - touchStartX;
-
-        if (swipeDistance > 50) {
-            // Deslizar hacia la derecha
-            showPrevImage();
-        } else if (swipeDistance < -50) {
-            // Deslizar hacia la izquierda
-            showNextImage();
-        }
-    }
-
-    showCurrentImage();
-});
-
-
-/* document.addEventListener("DOMContentLoaded", function () {
     // Obtén las imágenes y los botones
     let images = document.querySelectorAll(".book1 img");
     let prevButton = document.getElementById("prevButton");
@@ -134,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentImageIndex = 0;
 	let touchStartX = 0;
     let touchEndX = 0;
+	let swipeThreshold = 20; // Umbral de sensibilidad ajustado
 
     // Función para mostrar la imagen actual
     function showCurrentImage() {
@@ -175,10 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleSwipe() {
         let swipeDistance = touchEndX - touchStartX;
 
-        if (swipeDistance > 50) {
+        if (swipeDistance > swipeThreshold) {
             // Deslizar hacia la derecha
             showPrevImage();
-        } else if (swipeDistance < -50) {
+        } else if (swipeDistance < -swipeThreshold) {
             // Deslizar hacia la izquierda
             showNextImage();
         }
@@ -186,4 +111,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Muestra la primera imagen al cargar la página
     showCurrentImage();
-}); */
+});
